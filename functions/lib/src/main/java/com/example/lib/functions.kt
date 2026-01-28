@@ -35,6 +35,14 @@ fun main() {
 
 
     println(greet("Kotlin", 10))
+
+    /*
+    val numbers = listOf(1, 2, 3, 4)
+    val doubled = numbers.map { it * 2 }
+    Det her er det samme
+    val doubled = numbers.map { element -> element * 2 }
+    println(doubled)
+     */
 }
 
 fun getTransformListMap(list: List<Int>): List<Int> {
