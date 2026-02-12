@@ -8,7 +8,7 @@ package com.example.lib
 
 open class Survivor (public val name: String) {
     var health: Int = 100
-    
+
     open fun fight() {
         health--;
         println("$name is fighting!!!")
