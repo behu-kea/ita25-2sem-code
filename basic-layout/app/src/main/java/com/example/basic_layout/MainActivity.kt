@@ -38,11 +38,35 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            App()
+            Opgave1()
         }
     }
 }
 
+
+@Composable
+fun Opgave1() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Red)
+            .padding(24.dp),
+        verticalArrangement = Arrangement.SpaceBetween,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Velkommen")
+
+        Column {
+            Button(onClick = {}) {
+                Text("knap 1")
+            }
+
+            Button(onClick = {}) {
+                Text("knap 2")
+            }
+        }
+    }
+}
 
 @Preview
 @Composable
