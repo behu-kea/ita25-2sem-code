@@ -26,7 +26,31 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Currency()
+            //Currency()
+            Calculator()
+        }
+    }
+}
+
+@Composable
+fun Calculator() {
+    var calculatorDisplayString: String by remember {
+        mutableStateOf("")
+    }
+
+    Column(modifier = Modifier.padding(24.dp)) {
+        Text(calculatorDisplayString)
+
+        Button(onClick = {
+            calculatorDisplayString += "1"
+        }) {
+            Text("1")
+        }
+
+        Button(onClick = {
+            calculatorDisplayString += "2"
+        }) {
+            Text("2")
         }
     }
 }
