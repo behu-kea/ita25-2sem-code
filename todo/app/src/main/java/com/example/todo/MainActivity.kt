@@ -65,17 +65,22 @@ fun Todos() {
 
         LazyColumn {
             items(todos) { todo ->
-                Row (verticalAlignment = Alignment.CenterVertically) {
-                    Text(todo.text)
-
-                    Checkbox(checked = todo.isDone, onCheckedChange = {
-                        val todoIndex = todos.indexOf(todo)
-                        val newTodo = Todo(todo.text, !todo.isDone)
-                        todos[todoIndex] = newTodo
-                        Log.d(TAG, "on check clicked $todoIndex")
-                    })
-                }
+                TodoItem(todo, todos)
             }
         }
+    }
+}
+
+@Composable
+fun TodoItem (todo: Todo, todos: MutableList<Todo>) {
+    Row (verticalAlignment = Alignment.CenterVertically) {
+        Text(todo.text.toList().map { "*" }.joinToString(""))
+
+        Checkbox(checked = todo.isDone, onCheckedChange = {
+            val todoIndex = todos.indexOf(todo)
+            val newTodo = Todo(todo.text, !todo.isDone)
+            todos[todoIndex] = newTodo
+            Log.d(TAG, "on check clicked $todoIndex")
+        })
     }
 }
