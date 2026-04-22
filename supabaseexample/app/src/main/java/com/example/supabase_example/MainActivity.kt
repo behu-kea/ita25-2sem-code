@@ -48,7 +48,7 @@ fun InstrumentsList(notesViewModel: InstrumentViewModel) {
             Button(onClick = {
                 notesViewModel.updateInstruments()
             }) {
-                Text("Get newest instruments")
+                Text("Update instruments")
             }
 
             Button(onClick = {

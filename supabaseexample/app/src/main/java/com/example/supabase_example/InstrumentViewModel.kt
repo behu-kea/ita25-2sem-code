@@ -1,5 +1,6 @@
 package com.example.supabase_example
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -21,17 +22,18 @@ val supabase = createSupabaseClient(
 val instrumentRepository = InstrumentRepository()
 
 class InstrumentViewModel: ViewModel() {
-    var instruments by mutableStateOf<List<Instrument>>(listOf())
+    var instruments: List<Instrument> by mutableStateOf(listOf())
 
     init {
         viewModelScope.launch {
             instruments = instrumentRepository.getInstruments()
+            Log.d("instrument", instruments.toString())
         }
     }
 
     fun createInstrument() {
         viewModelScope.launch {
-            val newInstrument = Instrument( name = "Drums");
+            val newInstrument = Instrument( name = "Large piano");
             instrumentRepository.createNewInstrument(newInstrument)
         }
     }
